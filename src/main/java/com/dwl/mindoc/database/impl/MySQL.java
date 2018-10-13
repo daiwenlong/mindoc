@@ -10,6 +10,17 @@ import com.dwl.mindoc.database.Database;
  **/
 public class MySQL implements Database{
 
+    private String baseName;
+
+    public MySQL(String baseName){
+        this.baseName = baseName;
+    }
+
+    @Override
+    public String getBaseName() {
+        return this.baseName;
+    }
+
     @Override
     public String getType() {
         return "MySQL";
@@ -24,6 +35,7 @@ public class MySQL implements Database{
     public String getColumnSql() {
         return "select column_name,column_type,column_key,is_nullable,column_comment from information_schema.columns where table_schema = ?  and table_name = ?";
     }
+
 }
 
 

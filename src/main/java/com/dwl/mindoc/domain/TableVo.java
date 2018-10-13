@@ -1,5 +1,7 @@
 package com.dwl.mindoc.domain;
 
+import java.util.List;
+
 /**
  * @program: mindoc
  * @description: 表信息
@@ -11,6 +13,8 @@ public class TableVo {
     private String tableName;
     /*表注释*/
     private String tableComment;
+
+    private List<ColumnVo> Columns;
 
     public String getTableName() {
         return tableName;
@@ -26,6 +30,14 @@ public class TableVo {
 
     public void setTableComment(String tableComment) {
         this.tableComment = tableComment;
+    }
+
+    public List<ColumnVo> getColumns() {
+        return Columns;
+    }
+
+    public void setColumns(List<ColumnVo> columns) {
+        Columns = columns;
     }
 }
 
