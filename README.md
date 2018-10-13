@@ -8,20 +8,20 @@
 
 ### application.properties配置信息
 
-#数据库连接信息
-spring.datasource.url=jdbc:mysql://localhost:3306/reports
-spring.datasource.username: root
-spring.datasource.password: 111111
-spring.datasource.driver-class-name: com.mysql.jdbc.Driver
+#数据库连接信息<br> 
+spring.datasource.url=jdbc:mysql://localhost:3306/reports<br> 
+spring.datasource.username: root<br> 
+spring.datasource.password: 111111<br> 
+spring.datasource.driver-class-name: com.mysql.jdbc.Driver<br> 
 
-#数据库类型
-baseType=MySQL
-#baseType=Oracle
-#baseType=SQLite
-#baseType=SQLServer
-#baseType=PostgreSQL
+#数据库类型<br> 
+baseType=MySQL<br> 
+#baseType=Oracle<br> 
+#baseType=SQLite<br> 
+#baseType=SQLServer<br> 
+#baseType=PostgreSQL<br> 
 
-#数据库实例名
+#数据库实例名<br> 
 baseName=reports
 
 ### 运行MindocApplication
