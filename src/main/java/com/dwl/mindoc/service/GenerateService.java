@@ -7,6 +7,8 @@ import com.dwl.mindoc.domain.TableVo;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
@@ -26,6 +28,8 @@ import java.util.Map;
 @Service
 public class GenerateService {
 
+    private Logger logger = LoggerFactory.getLogger(getClass());
+
     @Autowired
     private BaseFactory factory;
 
@@ -39,6 +43,7 @@ public class GenerateService {
             List<TableVo> tables = dao.getTables(base);
             tables.forEach(table->{
                 table.setColumns(dao.getColumns(base,table.getTableName()));
+                logger.info("mindoc - TableName：{} TableComment：{} loading...",table.getTableName(),table.getTableComment());
             });
             makeDoc(tables);
         } catch (Exception e) {
@@ -56,6 +61,7 @@ public class GenerateService {
      * @throws TemplateException
      */
     public void makeDoc(List<TableVo> tables){
+        logger.info("mindoc - makeDoc Satrting...");
         // 第一步：创建一个Configuration对象。
         Configuration configuration = new Configuration(Configuration.getVersion());
         // 第二步：设置模板文件所在的路径。
@@ -73,7 +79,10 @@ public class GenerateService {
             Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile)));
             // 第六步：调用模板对象的process方法输出文件。
             template.process(dataModel, out);
+            logger.info("mindoc - MakeDoc succeeded.");
+            logger.info("mindoc - Doc directory {}",outFile);
         } catch (IOException |TemplateException e) {
+            logger.warn("mindoc - MakeDoc failed.");
         }
     }
 
