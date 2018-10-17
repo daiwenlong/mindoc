@@ -6,9 +6,9 @@ public interface Database {
 
     String getType();
 
-    String getTablesSql();
+    String getTablesSql(Database base);
 
-    String getColumnSql();
+    String getColumnSql(Database base ,String tableName);
 
 
 }

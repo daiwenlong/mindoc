@@ -38,7 +38,7 @@ public class BaseFactory {
                 dataBase = new MySQL(baseName);
                 break;
             case Oracle:
-                dataBase = new Oracle();
+                dataBase = new Oracle(baseName);
                 break;
             case PostgreSQL:
                 dataBase = new PostgreSQL();

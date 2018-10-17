@@ -9,6 +9,7 @@ import com.dwl.mindoc.database.Database;
  * @create: 2018-10-13 12:20
  **/
 public class SQLServer implements Database {
+
     @Override
     public String getBaseName() {
         return null;
@@ -20,12 +21,12 @@ public class SQLServer implements Database {
     }
 
     @Override
-    public String getTablesSql() {
+    public String getTablesSql(Database base) {
         return null;
     }
 
     @Override
-    public String getColumnSql() {
+    public String getColumnSql(Database base, String tableName) {
         return null;
     }
 }

@@ -27,13 +27,13 @@ public class MySQL implements Database{
     }
 
     @Override
-    public String getTablesSql() {
-        return "select table_name,table_comment from information_schema.tables where table_schema = ? order by table_name asc";
+    public String getTablesSql(Database base) {
+        return "select table_name,table_comment from information_schema.tables where table_schema = '"+base.getBaseName()+"' order by table_name asc";
     }
 
     @Override
-    public String getColumnSql() {
-        return "select column_name,column_type,column_key,is_nullable,column_comment from information_schema.columns where table_schema = ?  and table_name = ?";
+    public String getColumnSql(Database base ,String tableName) {
+        return "select column_name,column_type,column_key,is_nullable,column_comment from information_schema.columns where table_schema = '"+base.getBaseName()+"'  and table_name = '"+tableName+"'";
     }
 
 }

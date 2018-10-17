@@ -20,14 +20,16 @@ public class SQLite implements Database {
     }
 
     @Override
-    public String getTablesSql() {
+    public String getTablesSql(Database base) {
         return null;
     }
 
     @Override
-    public String getColumnSql() {
+    public String getColumnSql(Database base, String tableName) {
         return null;
     }
+
+
 }
 
 
