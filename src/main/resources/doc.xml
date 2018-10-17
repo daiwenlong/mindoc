@@ -393,7 +393,7 @@
             <w:sz w:val="18"/>
             <w:sz-cs w:val="18"/>
           </w:rPr>
-          <w:t>${table.tableName}    </w:t>
+          <w:t>${table.tableName!}    </w:t>
         </w:r>
         <w:r wsp:rsidRPr="00481323">
           <w:rPr>
@@ -420,7 +420,7 @@
             <w:sz w:val="18"/>
             <w:sz-cs w:val="18"/>
           </w:rPr>
-          <w:t>${table.tableComment} </w:t>
+          <w:t>${table.tableComment!} </w:t>
         </w:r>
       </w:p>
       <w:tbl>
@@ -580,7 +580,7 @@
                   <w:sz w:val="18"/>
                   <w:sz-cs w:val="18"/>
                 </w:rPr>
-                <w:t>${column.columnName}</w:t>
+                <w:t>${column.columnName!}</w:t>
               </w:r>
             </w:p>
           </w:tc>
@@ -601,7 +601,7 @@
                   <w:sz w:val="18"/>
                   <w:sz-cs w:val="18"/>
                 </w:rPr>
-                <w:t>${column.columnType}</w:t>
+                <w:t>${column.columnType!}</w:t>
               </w:r>
             </w:p>
           </w:tc>
@@ -622,7 +622,7 @@
                   <w:sz w:val="18"/>
                   <w:sz-cs w:val="18"/>
                 </w:rPr>
-                <w:t>${column.columnKey}</w:t>
+                <w:t>${column.columnKey!}</w:t>
               </w:r>
             </w:p>
           </w:tc>
@@ -643,7 +643,7 @@
                   <w:sz w:val="18"/>
                   <w:sz-cs w:val="18"/>
                 </w:rPr>
-                <w:t>${column.isNullable}</w:t>
+                <w:t>${column.isNullable!}</w:t>
               </w:r>
             </w:p>
           </w:tc>
@@ -664,7 +664,7 @@
                   <w:sz w:val="18"/>
                   <w:sz-cs w:val="18"/>
                 </w:rPr>
-                <w:t>${column.columnComment}</w:t>
+                <w:t>${column.columnComment!}</w:t>
               </w:r>
             </w:p>
           </w:tc>
