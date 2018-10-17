@@ -35,7 +35,7 @@ baseName=reports
 #### 文档预览
 ![image](https://github.com/daiwenlong/mindoc/blob/master/images/table.png)
 
-暂只支持MySQL数据库
+暂只支持MySQL，Oracle数据库
 
 
 
