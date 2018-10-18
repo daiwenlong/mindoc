@@ -35,6 +35,20 @@ baseName=reports
 #### 文档预览
 ![image](https://github.com/daiwenlong/mindoc/blob/master/images/table.png)
 
+
+### 桌面程序
+#### 下载mindoc.jar双击运行
+![image](https://github.com/daiwenlong/mindoc/blob/master/images/desk.png)
+
+#### 填写数据库信息
+![image](https://github.com/daiwenlong/mindoc/blob/master/images/data.png)
+
+#### 点击生成按钮
+![image](https://github.com/daiwenlong/mindoc/blob/master/images/view.png)
+
+#### 文档预览
+![image](https://github.com/daiwenlong/mindoc/blob/master/images/show1.png)
+
 暂只支持MySQL，Oracle数据库
 
 
