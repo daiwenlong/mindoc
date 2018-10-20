@@ -22,7 +22,7 @@ baseType=MySQL<br>
 #baseType=SQLServer<br> 
 #baseType=PostgreSQL<br> 
 
-#文档类型<br> 
+#文档类型<br>
 fileType=pdf<br> 
 #fileType=word<br> 
 
