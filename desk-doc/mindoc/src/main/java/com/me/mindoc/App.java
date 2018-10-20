@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -21,7 +22,7 @@ public class App
 	        // 创建 JFrame 实例
 	        JFrame frame = new JFrame("文档生成器-https://github.com/daiwenlong/mindoc");
 	        // Setting the width and height of frame
-	        frame.setSize(500, 300);
+	        frame.setSize(500, 330);
 	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	        /* 创建面板，这个类似于 HTML 的 div 标签
@@ -111,12 +112,30 @@ public class App
 	        selectBox.addItem("MySQL");
 	        selectBox.addItem("Oracle");
 	        panel.add(selectBox);
+	        
+	        
+	        JLabel fileLabel = new JLabel("文档    类型:");
+	        fileLabel.setBounds(50,170,80,25);
+	        panel.add(fileLabel);
+	        
+	        
+	        final JComboBox<String> fileBox = new JComboBox<String>();
+	        
+	        fileBox.setBounds(150,170,265,25);
+	        fileBox.addItem("Word");
+	        fileBox.addItem("PDF");
+	        panel.add(fileBox);
+	        
+	        
+	        
+	        
+	        
 	        JButton loginButton = new JButton("生成文档");
-	        loginButton.setBounds(200, 180, 120, 35);
+	        loginButton.setBounds(180, 210, 120, 35);
 	        
 	        
 	        final JLabel message = new JLabel();
-	        message.setBounds(10,220,450,25);
+	        message.setBounds(10,250,450,25);
 	        panel.add(message);
 	        
 	        
@@ -128,8 +147,9 @@ public class App
 					String password = passwordText.getText().toString();
 					String name = nameText.getText().toString();
 					String type = selectBox.getSelectedItem().toString();
-					Generator generator = new Generator(url, user, password, name, type);
-					message.setText(generator.makeDoc());;
+					String file = fileBox.getSelectedItem().toString();
+					Generator generator = new Generator(url, user, password, name, type, file);
+					message.setText(generator.makeDoc());
 				}
 			});
 	        panel.add(loginButton);
