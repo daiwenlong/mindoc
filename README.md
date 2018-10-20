@@ -22,9 +22,9 @@ baseType=MySQL<br>
 #baseType=SQLServer<br> 
 #baseType=PostgreSQL<br> 
 
-#文档类型
-fileType=pdf
-#fileType=word
+#文档类型<br> 
+fileType=pdf<br> 
+#fileType=word<br> 
 
 #数据库实例名<br> 
 baseName=reports
