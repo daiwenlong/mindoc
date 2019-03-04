@@ -47,7 +47,7 @@ public class BaseFactory {
                 dataBase = new SQLite();
                 break;
             case SQLServer:
-                dataBase = new SQLServer();
+                dataBase = new SQLServer(baseName);
                 break;
             default:
                 throw new Exception("Not Support BaseType: "+baseType);
