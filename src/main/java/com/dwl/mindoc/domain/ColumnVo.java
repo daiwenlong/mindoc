@@ -17,6 +17,8 @@ public class ColumnVo {
     private String isNullable;
     /*注释*/
     private String columnComment;
+    /*默认值*/
+    private String defaultValue;
 
     public String getColumnName() {
         return columnName;
@@ -50,13 +52,21 @@ public class ColumnVo {
         this.isNullable = isNullable;
     }
 
-    public String getColumnComment() {
+	public String getColumnComment() {
         return columnComment;
     }
 
     public void setColumnComment(String columnComment) {
         this.columnComment = columnComment;
     }
+
+    public String getDefaultValue() {
+		return defaultValue;
+	}
+
+    public void setDefaultValue(String defaultValue) {
+		this.defaultValue = defaultValue;
+	}
 }
 
 
