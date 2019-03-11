@@ -64,12 +64,11 @@ public class GenerateService {
 				logger.info("mindoc - TableName：{} TableComment：{} loading...", table.getTableName(),
 						table.getTableComment());
 			});
-			makeDoc(tables);
-//			if ("pdf".equalsIgnoreCase(config.getValue("fileType"))) {
-//				makePdf(tables);
-//			} else {
-//				makeDoc(tables);
-//			}
+			if ("pdf".equalsIgnoreCase(config.getValue("fileType"))) {
+				makePdf(tables);
+			} else {
+				makeDoc(tables);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -84,7 +83,7 @@ public class GenerateService {
 	 * @throws IOException
 	 * @throws TemplateException
 	 */
-	public void makeDoc(List<TableVo> tables) {
+	private void makeDoc(List<TableVo> tables) {
 		logger.info("mindoc - makeDoc satrting...");
 		// 第一步：创建一个Configuration对象。
 		Configuration configuration = new Configuration(Configuration.getVersion());
@@ -110,56 +109,55 @@ public class GenerateService {
 		}
 	}
 
-//	public void makePdf(List<TableVo> tables) {
-//
-//		try {
-//			logger.info("mindoc - makePdf satrting...");
-//			PdfDocument pdfDoc = new PdfDocument(
-//					new PdfWriter(System.getProperty("user.dir") + "\\DatabaseDesign.pdf"));
-//			Document doc = new Document(pdfDoc);// 构建文档对象
-//			TextFooterEventHandler eh = new TextFooterEventHandler(doc);
-//			pdfDoc.addEventHandler(PdfDocumentEvent.END_PAGE, eh);
-//			// 中文字体
-//			PdfFont sysFont = PdfFontFactory.createFont("STSongStd-Light", "UniGB-UCS2-H", false);
-//			Paragraph paragraph = new Paragraph();
-//			paragraph.add("数据库设计文档").setFont(sysFont).setBold().setFontSize(20).setTextAlignment(TextAlignment.CENTER);
-//			doc.add(paragraph);
-//			int num = 0;
-//			for (TableVo vo : tables) {
-//				num++;
-//				doc.add(new Paragraph(""));
-//				String title = num + "  表名：" + vo.getTableName() + "   表注释：" + vo.getTableComment();
-//				doc.add(new Paragraph(title).setFont(sysFont).setBold());
-//				// 构建表格以100%的宽度
-//				Table table = new Table(5).setWidth(UnitValue.createPercentValue(100));
-//
-//				table.addCell(new Cell().add(new Paragraph("列名")).setFont(sysFont)
-//						.setBackgroundColor(new DeviceRgb(221, 234, 238)));
-//				table.addCell(new Cell().add(new Paragraph("数据类型")).setFont(sysFont)
-//						.setBackgroundColor(new DeviceRgb(221, 234, 238)));
-//				table.addCell(new Cell().add(new Paragraph("约束")).setFont(sysFont)
-//						.setBackgroundColor(new DeviceRgb(221, 234, 238)));
-//				table.addCell(new Cell().add(new Paragraph("允许空")).setFont(sysFont)
-//						.setBackgroundColor(new DeviceRgb(221, 234, 238)));
-//				table.addCell(new Cell().add(new Paragraph("备注")).setFont(sysFont)
-//						.setBackgroundColor(new DeviceRgb(221, 234, 238)));
-//				for (ColumnVo col : vo.getColumns()) {
-//					table.addCell(new Cell().add(new Paragraph(col.getColumnName())).setFont(sysFont));
-//					table.addCell(new Cell().add(new Paragraph(col.getColumnType())).setFont(sysFont));
-//					table.addCell(new Cell().add(new Paragraph(col.getColumnKey())).setFont(sysFont));
-//					table.addCell(new Cell().add(new Paragraph(col.getIsNullable())).setFont(sysFont));
-//					table.addCell(new Cell().add(new Paragraph(col.getColumnComment())).setFont(sysFont));
-//				}
-//				// 将表格添加入文档并页面居中
-//				doc.add(table.setHorizontalAlignment(HorizontalAlignment.CENTER));
-//			}
-//			doc.close();
-//			logger.info("mindoc - MakePdf succeeded.");
-//			logger.info("mindoc - Pdf directory {}", System.getProperty("user.dir") + "\\DatabaseDesign.pdf");
-//		} catch (Exception e) {
-//			logger.warn("mindoc - MakePdf failed.");
-//		}
-//
-//	}
+	private void makePdf(List<TableVo> tables) {
+
+		try {
+			logger.info("mindoc - makePdf satrting...");
+			PdfDocument pdfDoc = new PdfDocument(
+					new PdfWriter(System.getProperty("user.dir") + "\\DatabaseDesign.pdf"));
+			Document doc = new Document(pdfDoc);// 构建文档对象
+			TextFooterEventHandler eh = new TextFooterEventHandler(doc);
+			pdfDoc.addEventHandler(PdfDocumentEvent.END_PAGE, eh);
+			// 中文字体
+			PdfFont sysFont = PdfFontFactory.createFont("STSongStd-Light", "UniGB-UCS2-H", false);
+			Paragraph paragraph = new Paragraph();
+			paragraph.add("数据库设计文档").setFont(sysFont).setBold().setFontSize(20).setTextAlignment(TextAlignment.CENTER);
+			doc.add(paragraph);
+			int num = 0;
+			for (TableVo vo : tables) {
+				num++;
+				doc.add(new Paragraph(""));
+				String title = num + "  表名：" + vo.getTableName() + "   表注释：" + vo.getTableComment();
+				doc.add(new Paragraph(title).setFont(sysFont).setBold());
+				// 构建表格以100%的宽度
+				Table table = new Table(5).setWidth(UnitValue.createPercentValue(100));
+
+				table.addCell(new Cell().add(new Paragraph("列名")).setFont(sysFont)
+						.setBackgroundColor(new DeviceRgb(221, 234, 238)));
+				table.addCell(new Cell().add(new Paragraph("数据类型")).setFont(sysFont)
+						.setBackgroundColor(new DeviceRgb(221, 234, 238)));
+				table.addCell(new Cell().add(new Paragraph("约束")).setFont(sysFont)
+						.setBackgroundColor(new DeviceRgb(221, 234, 238)));
+				table.addCell(new Cell().add(new Paragraph("允许空")).setFont(sysFont)
+						.setBackgroundColor(new DeviceRgb(221, 234, 238)));
+				table.addCell(new Cell().add(new Paragraph("备注")).setFont(sysFont)
+						.setBackgroundColor(new DeviceRgb(221, 234, 238)));
+				for (ColumnVo col : vo.getColumns()) {
+					table.addCell(new Cell().add(new Paragraph(col.getColumnName())).setFont(sysFont));
+					table.addCell(new Cell().add(new Paragraph(col.getColumnType())).setFont(sysFont));
+					table.addCell(new Cell().add(new Paragraph(col.getColumnKey())).setFont(sysFont));
+					table.addCell(new Cell().add(new Paragraph(col.getIsNullable())).setFont(sysFont));
+					table.addCell(new Cell().add(new Paragraph(col.getColumnComment())).setFont(sysFont));
+				}
+				// 将表格添加入文档并页面居中
+				doc.add(table.setHorizontalAlignment(HorizontalAlignment.CENTER));
+			}
+			doc.close();
+			logger.info("mindoc - MakePdf succeeded.");
+			logger.info("mindoc - Pdf directory {}", System.getProperty("user.dir") + "\\DatabaseDesign.pdf");
+		} catch (Exception e) {
+			logger.warn("mindoc - MakePdf failed.");
+		}
+	}
 
 }

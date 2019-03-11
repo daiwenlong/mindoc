@@ -55,7 +55,7 @@ mindoc.jar只有Word格式，mindoc-1.1.jar有Word和PDF两种格式
 #### 文档预览
 ![image](https://github.com/daiwenlong/mindoc/blob/master/images/show1.png)
 
-暂只支持MySQL，Oracle数据库
+暂只支持MySQL，Oracle，SQLServer数据库
 
 
 
