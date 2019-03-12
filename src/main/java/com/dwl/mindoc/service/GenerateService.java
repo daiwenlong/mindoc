@@ -99,7 +99,7 @@ public class GenerateService {
 			dataModel.put("tables", tables);
 			// 生成文件放在项目根目录下
 			File outFile = new File(System.getProperty("user.dir") + "\\DatabaseDesign.doc");
-			Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile)));
+			Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile),"UTF-8"));
 			// 第六步：调用模板对象的process方法输出文件。
 			template.process(dataModel, out);
 			logger.info("mindoc - MakeDoc succeeded.");
